@@ -1,0 +1,1 @@
+select u.city, count(distinct r.user_id) as total_regis from users u join registrations r on u.user_id=r.user_id group by u.city order by total_regis desc limit 5

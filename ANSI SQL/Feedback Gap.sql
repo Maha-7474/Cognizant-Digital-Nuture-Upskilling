@@ -1,0 +1,1 @@
+select e.event_id,e.title from events e join registrations r on e.event_id=r.event_id left join feedback f on e.event_id=f.event_id where f.feedback_id is null group by e.event_id, e.title

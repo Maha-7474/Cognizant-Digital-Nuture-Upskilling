@@ -1,0 +1,1 @@
+select f.user_id,u.full_name, e.title as event_name, f.comments, f.rating from feedback f join users u on f.user_id=u.user_id join events e on e.event_id=f.event_id where f.rating<3

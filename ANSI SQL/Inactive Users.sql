@@ -1,0 +1,1 @@
+select u.full_name from users u left join registrations r on u.user_id=r.user_id and r.registration_date>=(select max(registration_date)-interval 90 day from registrations) where r.user_id is null;

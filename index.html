@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Community Event Portal</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="main.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Welcome Banner -->
+    <div id="welcomeBanner">
+        <h1>Local Community Event Portal</h1>
+
+        <p class="highlight">
+            Welcome to the Community Portal!
+        </p>
+
+        <p>
+            <span style="color:red;font-weight:bold;">
+                Special Offer: Free Registration Today!
+            </span>
+        </p>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#Home">Home</a>
+        <a href="#Events">Events</a>
+        <a href="#Gallery">Gallery</a>
+        <a href="#Register">Register</a>
+        <a href="#Feedback">Feedback</a>
+        <a href="#Contact">Contact</a>
+        <a href="help.html" target="_blank">Help</a>
+    </nav>
+
+    <!-- Main -->
+    <main>
+
+        <!-- Home -->
+        <section id="Home">
+            <h2>Home</h2>
+
+            <p>
+                Your one-stop destination for local events and activities.
+            </p>
+        </section>
+
+        <!-- Events -->
+        <section id="Events">
+            <h2>Upcoming Events</h2>
+
+            <div id="eventContainer"></div>
+        </section>
+
+        <!-- Gallery -->
+        <section id="Gallery">
+
+            <h2>Community Event Gallery</h2>
+
+            <table>
+                <tr>
+                    <td>
+                        <img src="event1.jpg"
+                            alt="Sports Day"
+                            title="Sports Day"
+                            class="event-image">
+
+                        <p>Sports Day</p>
+                    </td>
+
+                    <td>
+                        <img src="event2.jpg"
+                            alt="Cultural Fest"
+                            title="Cultural Fest"
+                            class="event-image">
+
+                        <p>Cultural Fest</p>
+                    </td>
+
+                    <td>
+                        <img src="event3.jpg"
+                            alt="Workshop"
+                            title="Workshop"
+                            class="event-image">
+
+                        <p>Workshop</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <img src="event4.jpg"
+                            alt="Meeting"
+                            title="Meeting"
+                            class="event-image">
+
+                        <p>Community Meeting</p>
+                    </td>
+
+                    <td>
+                        <img src="event5.jpg"
+                            alt="Plantation"
+                            title="Plantation"
+                            class="event-image">
+
+                        <p>Tree Plantation</p>
+                    </td>
+
+                    <td>
+                        <img src="event6.jpg"
+                            alt="Donation"
+                            title="Donation"
+                            class="event-image">
+
+                        <p>Blood Donation Camp</p>
+                    </td>
+                </tr>
+            </table>
+
+        </section>
+
+        <!-- Registration -->
+        <section id="Register">
+
+            <h2>Event Registration</h2>
+
+            <form id="regForm" class="registration-form">
+
+                <input type="text"
+                    name="name"
+                    placeholder="Enter Name"
+                    required
+                    autofocus>
+
+                <input type="email"
+                    name="email"
+                    placeholder="Enter Email"
+                    required>
+
+                <input type="date" required>
+
+                <select name="event" required>
+                    <option value="">Select Event</option>
+                    <option>Sports Day</option>
+                    <option>Workshop</option>
+                    <option>Cultural Fest</option>
+                </select>
+
+                <textarea
+                    rows="4"
+                    placeholder="Enter Message"></textarea>
+
+                <button type="submit">
+                    Register
+                </button>
+
+                <output id="outputMsg"></output>
+
+            </form>
+
+        </section>
+
+        <!-- Feedback -->
+        <section id="Feedback">
+
+            <h2>Feedback</h2>
+
+            <input
+                type="text"
+                id="phone"
+                placeholder="Enter Phone Number"
+                onblur="validatePhone()">
+
+            <p id="phoneMsg"></p>
+
+            <select id="eventType"
+                onchange="showFee()">
+
+                <option value="">
+                    Select Event
+                </option>
+
+                <option value="200">
+                    Sports Day
+                </option>
+
+                <option value="300">
+                    Workshop
+                </option>
+
+            </select>
+
+            <p id="feeDisplay"></p>
+
+            <textarea
+                id="feedbackText"
+                rows="5"
+                placeholder="Feedback"
+                onkeyup="countCharacters()"></textarea>
+
+            <p>
+                Characters:
+                <span id="charCount">0</span>
+            </p>
+
+            <button onclick="submitFeedback()">
+                Submit Feedback
+            </button>
+
+            <p id="submitMsg"></p>
+
+            <img
+                src="poster.jpg"
+                id="eventImage"
+                alt="Poster"
+                ondblclick="enlargeImage()">
+
+        </section>
+
+        <!-- Video -->
+        <section>
+
+            <h2>Promo Video</h2>
+
+            <video
+                width="500"
+                controls
+                oncanplay="videoReady()">
+
+                <source
+                    src="promo.mp4"
+                    type="video/mp4">
+
+            </video>
+
+            <p id="videoMessage"></p>
+
+        </section>
+
+        <!-- Storage -->
+        <section>
+
+            <h2>User Preferences</h2>
+
+            <select
+                id="preferredEvent"
+                onchange="savePreference()">
+
+                <option value="">
+                    Choose Event
+                </option>
+
+                <option value="Sports Day">
+                    Sports Day
+                </option>
+
+                <option value="Workshop">
+                    Workshop
+                </option>
+
+            </select>
+
+            <button onclick="clearPreferences()">
+                Clear Preferences
+            </button>
+
+            <p id="storageMsg"></p>
+
+        </section>
+
+        <!-- Geolocation -->
+        <section>
+
+            <h2>Nearby Events</h2>
+
+            <button onclick="findLocation()">
+                Find Nearby Events
+            </button>
+
+            <p id="locationResult"></p>
+
+        </section>
+
+        <!-- Contact -->
+        <section id="Contact">
+
+            <h2>Contact Us</h2>
+
+            <p>
+                Email:
+                community@events.com
+            </p>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            &copy; 2026 Local Community Event Portal.
+            All Rights Reserved.
+        </p>
+
+        <p>
+            Email:
+            community@events.com
+        </p>
+
+        <p>
+            Hyderabad, India
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+/* Universal Selector */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#f4f4f4;
+    font-family:Arial,sans-serif;
+    padding:20px;
+}
+
+/* Welcome Banner */
+#welcomeBanner{
+    background:blue;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+.highlight{
+    background:yellow;
+    font-weight:bold;
+}
+
+/* Navigation */
+nav{
+    background:#333;
+    padding:15px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-right:15px;
+}
+
+nav a:hover{
+    color:orange;
+}
+
+/* Sections */
+section{
+    margin:20px 0;
+}
+
+h2{
+    background:linear-gradient(to right,#66ccff,#ccccff);
+    padding:10px;
+}
+
+/* Event Card */
+.eventCard{
+    border:2px solid gray;
+    padding:15px;
+    margin:10px;
+}
+
+/* Images */
+.event-image{
+    width:180px;
+    height:120px;
+    border:3px solid black;
+}
+
+/* Table */
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+td,th{
+    border:1px solid black;
+    padding:10px;
+    text-align:center;
+}
+
+tr:nth-child(even){
+    background:#eee;
+}
+
+/* Forms */
+.registration-form{
+    max-width:500px;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+}
+
+button{
+    background:blue;
+    color:white;
+    padding:10px;
+    border:none;
+    cursor:pointer;
+}
+
+/* Footer */
+footer{
+    background:#333;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:30px;
+}
+
+/* Responsive */
+@media(max-width:768px){
+
+    nav a{
+        display:block;
+        margin:10px 0;
+    }
+
+    .event-image{
+        width:120px;
+        height:80px;
+    }
+
+    body{
+        font-size:14px;
+    }
+}
